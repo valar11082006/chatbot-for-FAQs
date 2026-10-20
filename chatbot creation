@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Chatbot</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f2f2f2;
+        }
+
+        .chatbox{
+            width:350px;
+            margin:50px auto;
+            background:white;
+            border-radius:10px;
+            padding:20px;
+            box-shadow:0 0 10px gray;
+        }
+
+        #chat{
+            height:300px;
+            overflow-y:auto;
+            border:1px solid gray;
+            padding:10px;
+            margin-bottom:10px;
+        }
+
+        input{
+            width:75%;
+            padding:10px;
+        }
+
+        button{
+            padding:10px;
+        }
+
+        .user{
+            color:blue;
+        }
+
+        .bot{
+            color:green;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="chatbox">
+
+<h2>Simple Chatbot</h2>
+
+<div id="chat"></div>
+
+<input type="text" id="message" placeholder="Type your message">
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+    let input=document.getElementById("message");
+    let msg=input.value.toLowerCase();
+
+    let chat=document.getElementById("chat");
+
+    chat.innerHTML += "<p class='user'><b>You:</b> "+msg+"</p>";
+
+    let reply="Sorry, I don't understand.";
+
+    if(msg=="hi" || msg=="hello"){
+        reply="Hello! Welcome.";
+    }
+
+    else if(msg=="how are you"){
+        reply="I am fine. How are you?";
+    }
+
+    else if(msg=="what is your name"){
+        reply="My name is ChatBot.";
+    }
+
+    else if(msg=="bye"){
+        reply="Good Bye!";
+    }
+
+    chat.innerHTML += "<p class='bot'><b>Bot:</b> "+reply+"</p>";
+
+    input.value="";
+
+}
+
+</script>
+
+</body>
+</html>
